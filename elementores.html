@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="MobileOptimized" content="width" />
+        <title>Elementores</title>
+        <link rel="stylesheet" href="./styles.css"/>
+    </head>
+    <body>
+        <h1> Elementores </h1>
+        <h2 class="elige" id="seleccion2">Elige a tu Elementor:</h2>
+
+        <div class="select" id="seleccion1">
+            <button id="btn-seleccion">Seleccionar</button>
+        </div>
+
+        <section id="elementores" class="targets">
+            <div class="elem">
+                <input type="radio" name="elementor" id="fluxo"/>
+                <label for="fluxo">Fluxo - Elemento 💧</label>
+                <label for="fluxo">
+                    <img class="img-element" src="https://i.pinimg.com/564x/7f/84/ee/7f84ee4374111e02747aeb9a1c57af62.jpg">
+                </label>      
+            </div>
+            <div class="elem">
+                <input type="radio" name="elementor" id="terracore"/>
+                <label for="terracore">Terracore - Elemento 🌱</label>
+                <label for="terracore">
+                    <img class="img-element" src="https://i.pinimg.com/564x/0c/41/b6/0c41b64d7a65b01028c19be6e59a0cc6.jpg">
+                </label> 
+            </div>
+            <div class="elem">
+                <input type="radio" name="elementor" id="igneo"/>
+                <label for="igneo">Igneo - Elemento 🔥</label>
+                <label for="igneo">
+                    <img class="img-element" src="https://i.pinimg.com/564x/1a/f3/33/1af333c4afddfc4552db741f341c5303.jpg">
+                </label> 
+            </div>
+        </section>
+        
+        <hr/>
+
+        <div class="superDiv">
+        <section id="actions">
+            <span id="present-jugador"></span>
+            <img id="img-present-Jd">
+            <hr>
+            <span id="present-PC"></span>
+            <img id="img-present-PC">
+        </section>
+
+        <section id="derrota">
+            
+        </section>
+
+        <hr>
+        <section id="select-atack">
+            <p class="vida">Tu Elementor <span id="nombre-elem-jugador"></span> tiene <span id="vidas-jugador">24</span> vidas</p>
+            <p class="vida">El Elementor contrario <span id="nombre-elem-pc"></span> tiene <span id="vidas-pc">24</span> vidas</p>
+            <h2>Elige el siguiente ataque:</h2>
+            <div>
+                <P>Elige tus ataques con sabiduría:</P>
+                <p>Ataque débil: <b>- PODER | + DEFENSA </b>.
+                    <br>Ataque medio: <b>PODER == DEFENSA</b>.
+                    <br>Ataque fuerte: <b>+ PODER | - DEFENSA</b>.
+                    <br>Solo cuentas con <b>DOS ATAQUES FUERTES</b>. </p>
+                <div class="ataque"> 
+                    <button id="btn-atc1">Ataque débil</button>
+                    <button id="btn-atc2">Ataque Medio</button>
+                    <button id="btn-atc3">Ataque Fuerte</button>
+                </div>   
+            </div>
+        </section>
+        <hr>
+        </div>
+
+        <section id="replay">
+            <button id="reinicio">Reiniciar</button>
+        </section>
+
+        <script src="./elementores.js"></script>
+    </body>
+</html>

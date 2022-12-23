@@ -1,0 +1,316 @@
+@font-face{
+    font-family: 'Fuerte';
+    src:url('./Fuentes/Heavitas.ttf')
+}
+
+@font-face {
+    font-family: 'Semi-Fino';
+    src: url('./Fuentes/Cocogoose\ Pro\ Semilight-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Fino';
+    src: url('./Fuentes/Cocogoose\ Pro\ Light-trial.ttf');
+}
+
+@font-face {
+    font-family: 'Parrafo';
+    src:url('./Fuentes/Sansation_Regular.ttf')
+}
+
+
+body{
+    background-color: #401A00;
+    color: white;
+}
+
+hr{
+    border-color:#FBCF4B;
+}
+
+h1{
+    width: 100vw;
+    font-size: 9vw;
+    text-align: center;
+    font-family: 'Fuerte';
+    color: #FABB00;
+    text-shadow: -1px 0px 6px #000000;
+}
+
+.elige{
+    font-family: 'Semi-Fino';
+    font-size: 6vw;
+    color: #FBCF4B;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.elem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px;
+    background-color: #FBCF4B;
+    -webkit-box-shadow: 5px 5px 15px 6px #000000; 
+    box-shadow: 5px 5px 15px 6px #000000;
+}
+
+.elem label{
+    background-color: #FBCF4B;
+    color:#401A00;
+    font-family: 'Fino';
+    padding: 5px;
+    font-size: 22px;
+    text-align: center;
+}
+.elem input{
+    display: none;
+}
+.elem input:checked + label{
+    background-color: #401A00;
+    color:#FABB00
+}
+.elem input:checked + label + label{
+    background-color: #401A00;
+    color:#FABB00
+}
+
+.img-element{
+    width: 80vw;
+    height: auto;
+    border-radius: 20px;
+}
+
+.select{
+    text-align: center;
+}
+#btn-seleccion{
+    color:#FBCF4B;
+    background-color: #7A6525;
+    width: 45vw;
+    height: 6vh;
+    margin: 15px 0;
+    font-family: 'Semi-Fino';
+    font-size: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 6px #000000; 
+    box-shadow: 5px 5px 15px 6px #000000;
+}
+#btn-seleccion:hover{
+    background-color: #FBCF4B;
+    color:#401A00
+}
+
+#actions{
+    display: flex;
+    flex-direction: column;
+}
+
+#actions p{
+    font-family: 'Parrafo';
+    color:#FABB00;
+    font-size: 22px;
+    margin:0;
+}
+
+#actions h3{
+    font-family: 'Fuerte';
+    color:#FABB00;
+    font-size: 24px;
+}
+
+#present-jugador {
+    font-family: 'Parrafo';
+    color:#FABB00;
+    font-size: 22px;
+}
+
+#img-present-Jd, 
+#img-present-PC{
+    width: 90vw;
+    margin: 15px auto;
+    border-radius: 20px;
+}
+
+#present-PC {
+    font-family: 'Parrafo';
+    color:#FABB00;
+    font-size: 22px;
+}
+
+#select-atack{
+    background-color: #FBCF4B;
+    color:#401A00;
+    margin-top: 20px;
+    padding: 10px 20px 20px 20px;
+}
+.vida{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Parrafo';
+}
+#select-atack h2{
+    font-family: 'Semi-Fino';
+}
+#select-atack p{
+    font-family: 'Parrafo';
+    font-size: 18px;
+}
+.ataque{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.ataque button{
+    color:#FBCF4B;
+    background-color: #7A6525;
+    width: 25vw;
+    height: 8vh;
+    margin: 15px 0;
+    font-family: 'Semi-Fino';
+    font-size: 16px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 6px #000000; 
+    box-shadow: 5px 5px 15px 6px #000000;
+}
+.ataque button:hover{
+    background-color: #FBCF4B;
+    color:#401A00
+}
+
+#derrota{
+    text-align: center;
+}
+#derrota h3{
+    font-family: 'Parrafo';
+    color: #FABB00;
+}
+#derrota h2{
+    font-family: 'Fuerte';
+    color:#FABB00
+}
+
+#replay{
+    text-align: center;
+}
+
+#reinicio{
+    color:#FBCF4B;
+    background-color: #7A6525;
+    width: 25vw;
+    height: 8vh;
+    text-align: center;
+    margin: 15px auto;
+    font-family: 'Semi-Fino';
+    font-size: 16px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 6px #000000; 
+    box-shadow: 5px 5px 15px 6px #000000;
+}
+#reinicio:hover{
+    background-color: #FBCF4B;
+    color:#401A00
+}
+
+
+
+
+/* RESPONSIVE PANTALLAS DESKTOP */
+
+@media screen and (min-width: 850px) {
+    hr{
+        margin: 0
+    }
+
+    h1{ 
+        font-size: 4vw;
+    }
+
+    .elige{
+        font-size: 2vw;
+    }
+
+    .targets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 30px;
+    }
+
+    .elem input{
+        width: 2vw;
+        height: 2vw;
+        margin: auto 10px;
+    }
+    
+    .elem label{
+        padding: 15px;
+    }
+
+    .img-element{
+        width: 25vw;
+        height: 30vw;
+        border-radius: 20px;
+    }
+
+    #btn-seleccion{
+        height: 12vh;
+        font-size: 40px;
+    }
+
+    .superDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #actions{
+        width: 60%;
+    }
+
+    #present-jugador{
+        font-size: 2.2vw;
+    }
+
+    #present-PC{
+        font-size: 2.2vw;
+    }
+
+    #img-present-Jd, 
+    #img-present-PC{
+    width: 25vw;
+    margin: 15px auto;
+    border-radius: 20px;
+    }
+
+    #actions p{
+        font-size: 22px;
+        margin: 5px 0;
+    }
+
+    #select-atack{
+        width: 35%;
+        margin: 0;
+        height: 60%;
+        position: sticky;
+        top: 18%;
+    }
+
+    #derrota{
+        width: 35%;
+        margin: 0;
+        height: 60%;
+        position: sticky;
+        top: 25%;
+    }
+    
+    #reinicio{
+        position: fixed;
+        right: 8%;
+        bottom: 10%;
+        margin: 0;
+    }
+
+
+
+}
