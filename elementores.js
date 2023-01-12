@@ -60,8 +60,6 @@ function traer (id){
     let posicionTerracore = [460, 140];
     let posicionIgneo = [440, 350];
 
-    console.log(anchoMapa, alturaMapa)
-
     if(anchoMapa < 630){
         anchoMapa -= 80
         altoFoto = 50; anchoFoto = 50; posicionJugador = [20, 20];
@@ -76,8 +74,8 @@ function traer (id){
         posicionFluxo = [1350, 350]; posicionTerracore = [800, 200]; posicionIgneo = [800, 600];
     }
     
-
-    
+    //------------BACKEND
+    let jugadorId = null
 
 //--------------------------------------Clases-------------------------------------------------------------------
 class Elementor {
@@ -196,7 +194,22 @@ function iniciarJuego(){
     reinicio.addEventListener('click', () =>{
         alert('Espero que te haya gustado mucho jugar a este videojuego. Es bastante simple, pero es uno de los primeros que programo. Mi nombre es Lautaro Nuñez.\nTe pido de favor que me sigas en Instagram: @lautar0_07. \nMucha Suerte en la vida!!')
         location.reload();
-    })
+    });
+
+    //CONEXION BACKEND -> Funcionalidad para unirse al juego
+    unirse();
+};
+
+//CONEXION BACKEND -> Funcionalidad para unirse al juego
+function unirse(){
+    fetch('http://localhost:3001/unirse')
+        .then((res)=>{
+            if(res.ok){
+                res.text().then((respuesta)=>{
+                    jugadorId = respuesta;
+                });
+            };
+        });
 };
 
 //-----------------------SELECCION DE ELEMENTORES----------------------------------------------------------------
@@ -262,6 +275,21 @@ function handleSeleccion (){
     seleccion2.style.display = 'none';
     }
    
+    //CONEXION BACKEND -> le mandamos al back el id del jugador
+    postearElementor(elementor)
+}
+
+//CONEXION BACKEND -> Funcionalidad para mandar al back el id del jugador
+function postearElementor(elementor){
+    fetch('http://localhost:3001/elementor/' + jugadorId, {
+        method: 'post',
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            elementor: elementor
+        })
+    })
 }
 
 
@@ -643,6 +671,9 @@ function pintarCanvas(){
     lienzo.drawImage(mapaBackground, 0, 0, mapa.width, mapa.height);
     elementEscogido.pintar();
 
+    //CONEXION BACKEND --> Llevando las coordenadas a la API
+    //actualizarPosicion(elementEscogido.x, elementEscogido.y);
+
     if(elementEscogido.nombre == 'Igneo'){
         enFluxo.pintar();
         enTerracore.pintar();
@@ -667,12 +698,9 @@ function pintarCanvas(){
             controlColision(enFluxo);
         }
     };
-
-    
 };
 
 function moverElementor (direccion){
-    console.log(direccion)
     let elementEscogido = totalElementores.filter((el) => {return el.nombre == elementor})[0]
     direccion === 'arriba' ? elementEscogido.velocidadY = -5 : null;
     direccion === 'derecha' ? elementEscogido.velocidadX = 5 : null;
@@ -688,7 +716,6 @@ function detenerMovimiento(){
 
 function presionTecla (event){
     event.preventDefault()
-    console.log(event.key)
     event.key === 'ArrowUp' ? moverElementor('arriba'): null;
     event.key === 'ArrowDown' ? moverElementor('abajo'): null;
     event.key === 'ArrowRight' ? moverElementor('derecha'): null;
@@ -719,6 +746,27 @@ function controlColision(enemigo){
     seccion.style.display = 'flex';
     seccionAtaque.style.display = 'block';
     presentacionPC(enemigo);
+}
+
+//CONEXION BACKEND --> Funcionalidad para llevar las coordenadas a la API
+function actualizarPosicion (x, y){
+    fetch('http://localhost:3001/elementor/' + jugadorId + '/posicion', {
+        method: 'post',
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            x: x,
+            y: y
+        })
+    })
+    .then((res)=>{
+        if(res.ok){
+            res.json().then(({enemigos}) =>{
+                console.log(enemigos)
+            })
+        }
+    })
 }
 //----------------------------------------------------------------------------------------------------------
 

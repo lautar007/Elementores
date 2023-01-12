@@ -1,0 +1,23 @@
+{
+  "name": "elementores",
+  "version": "1.0.0",
+  "description": "",
+  "main": "elementores.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lautar007/Elementores.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lautar007/Elementores/issues"
+  },
+  "homepage": "https://github.com/lautar007/Elementores#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
